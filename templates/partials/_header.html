@@ -1,0 +1,33 @@
+{% load static %}
+<div class="pagina-inicial">
+    <header class="cabecalho">
+        <img src="{% static '/assets/logo/LogoS.png' %}" alt="Logo da Sublimity" />
+        {% for message in messages %}
+            <div>
+                <p class="alert alert-primary" id="messages">{{ message }}</p>
+            </div>
+        {% endfor %}
+        <div class="cabecalho__busca">
+            <div class="busca__fundo">
+                <form action="{% url 'buscar' %}">
+                    <input class="busca__input" type="text" name="buscar" placeholder="O que você procura?">
+                    <button type="submit" >
+                        <img class="busca__icone" src="{% static '/assets/ícones/1x/procurar.png' %}" alt="ícone de search">
+                    </button>
+                   
+                </form>
+                
+            </div>
+        </div>
+    </header>
+    <main class="principal">
+        <section class="menu-lateral">
+            <nav class="menu-lateral__navegacao">
+                <a href="{% url 'index' %}"><img src="{% static '/assets/ícones/1x/home-ativo.png' %}"> Home</a>
+                <a href="#"><img src="{% static '/assets/ícones/1x/olho-inativo.png' %}"> Mais vistas</a>
+                <a href="#"><img src="{% static '/assets/ícones/1x/novidade-inativo.png' %}"> Novas</a>
+                <a href="{% url 'login' %}"><img src="{% static '/assets/ícones/1x/login-claro.png' %}"> Login</a>
+                <a href="{% url 'cadastro' %}"><img src="{% static '/assets/ícones/1x/lampada-brilhante.png' %}"> Cadastro</a>
+                <a href="{% url 'logout' %}"><img src="{% static '/assets/ícones/1x/sair-claro.png' %}"> Sair</a>
+            </nav>
+        </section>
